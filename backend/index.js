@@ -19,6 +19,11 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+// ✅ Default route (for Render test)
+app.get("/", (req, res) => {
+  res.send("VishalTradeX Backend is Running ✅");
+});
+
 
 
 // ✅ SIGNUP route
