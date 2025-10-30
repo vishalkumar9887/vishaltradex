@@ -1,0 +1,175 @@
+/* --- Main Container & Overall Look --- */
+.watchlist-container {
+  background-color: #fbfcff; /* Dark background for a modern dashboard look */
+  color: #c4c4c4; /* Light grey text */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  max-width: 300px; /* Keep the watchlist compact on the side */
+  margin: 10px;
+}
+
+/* --- Search Bar Styling --- */
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #3c404c;
+}
+
+.search {
+  flex-grow: 1;
+  padding: 8px 12px;
+  border: 1px solid #4a4d5a;
+  border-radius: 4px;
+  background-color: #f3f3f3;
+  color: #fff;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search:focus {
+  border-color: #060606; /* Highlight on focus */
+}
+
+.counts {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #000000;
+}
+
+/* --- WatchList Item List Styling --- */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 400px; /* Max height for scrollability */
+  overflow-y: auto;
+  border-bottom: 1px solid #1f2127;
+  margin-bottom: 15px;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #3c404c;
+  position: relative;
+}
+
+.list li:first-child {
+  border-top: none;
+}
+
+/* --- Stock Item Info --- */
+.item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.item p {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  cursor: pointer;
+}
+
+.itemInfo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.price {
+  font-size: 15px;
+  font-weight: 600;
+  color: #262626;
+  min-width: 50px; /* Ensure price alignment */
+  text-align: right;
+}
+
+.percent {
+  font-size: 13px;
+  color: #090000;
+}
+
+/* Up/Down Colors */
+.up,
+.up .icon {
+  color: #017829; /* Green for Up */
+}
+
+.down,
+.down .icon {
+  color: #a70101; /* Red for Down */
+}
+
+/* --- WatchList Actions (Hover) --- */
+.actions {
+  position: absolute;
+  right: 0;
+  background-color: #ffffff; /* Match container background */
+  padding-left: 10px;
+  /* Use a gradient to create a fade-out effect on the stock name */
+  box-shadow: -10px 0 10px -5px #000000; 
+  z-index: 10;
+}
+
+.actions button {
+  border: none;
+  padding: 6px 8px;
+  margin-left: 2px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buy {
+  background-color: #009933;
+  color: white;
+}
+
+.buy:hover {
+  background-color: #00802b;
+}
+
+.sell {
+  background-color: #cc0000;
+  color: white;
+}
+
+.sell:hover {
+  background-color: #b30000;
+}
+
+.action {
+  background-color: #8b8c90;
+  color: #c4c4c4;
+  padding: 4px 6px;
+}
+
+.action:hover {
+  background-color: #f2f0f0;
+  color: #c4c4c4;
+}
+
+.action .icon {
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+/* --- Doughnut Chart Styling (for separation) --- */
+/* Assuming DoughnutChart has its own container, style the wrapper */
+.watchlist-container > div:last-child {
+  padding-top: 15px;
+  text-align: center;
+  height: 250px; /* Fix height for the chart */
+}

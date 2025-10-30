@@ -1,0 +1,109 @@
+/* General styling for the component container */
+.holdings-container {
+  padding: 20px;
+  background-color: #f4f7f9; /* Light background for the dashboard */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: Arial, sans-serif;
+}
+
+/* Title Styling */
+.title {
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+/* --- Table Styling --- */
+.order-table {
+  width: 100%;
+  overflow-x: auto; /* For responsiveness on small screens */
+  margin-bottom: 30px;
+}
+
+.order-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden; /* To apply border-radius to the table */
+}
+
+.order-table th,
+.order-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.order-table th {
+  background-color: #eef2f7;
+  color: #555;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.order-table tbody tr:hover {
+  background-color: #f7f9fb; /* Hover effect */
+}
+
+/* Profit and Loss Styling */
+.profit {
+  color: #008000; /* Green for profit */
+  font-weight: 500;
+}
+
+.loss {
+  color: #cc0000; /* Red for loss */
+  font-weight: 500;
+}
+
+/* --- Totals Section Styling --- */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 15px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.col {
+  flex: 1;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.col h5 {
+  font-size: 24px;
+  margin: 0;
+  color: #333;
+}
+
+.col h5 span {
+  font-size: 18px; /* Decimals slightly smaller */
+  font-weight: 400;
+}
+
+.col p {
+  color: #777;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .col {
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+  }
+  .col:last-child {
+    border-bottom: none;
+  }
+}  

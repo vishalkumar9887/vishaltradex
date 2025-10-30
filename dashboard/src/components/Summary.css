@@ -1,0 +1,168 @@
+/* Summary.css */
+:root {
+  --primary-color: #4361ee;
+  --success-color: #06ffa5;
+  --danger-color: #ff006e;
+  
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+.Summary {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.username {
+  margin-bottom: 20px;
+}
+
+.username h6 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+ 
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border-color), transparent);
+  margin: 15px 0;
+}
+
+ 
+.section:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.section span p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 15px 0;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.first {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.first h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.first h3.profit {
+  color: var(--success-color);
+}
+
+.first h3.profit small {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 8px;
+  color: var(--success-color);
+}
+
+.first p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.data hr {
+  border: none;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 5px 0;
+}
+
+.second {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.second p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.second p span {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .Summary {
+    padding: 15px;
+  }
+  
+  .section {
+    padding: 15px;
+  }
+  
+  .first h3 {
+    font-size: 1.8rem;
+  }
+  
+  .first h3.profit small {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation for numbers */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.first h3, .second p span {
+  animation: countUp 0.5s ease-out;
+}
+
+/* Add a subtle pulse animation to profit */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.profit {
+  animation: pulse 2s infinite;
+}

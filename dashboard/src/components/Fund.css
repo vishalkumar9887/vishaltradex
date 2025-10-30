@@ -1,0 +1,224 @@
+/* src/components/Funds.css */
+
+/* --- 📝 Imports and Variables (Best Practice) --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-font: 'Inter', sans-serif;
+    --app-blue: #1c3faa; /* Primary action color (from Navbar) */
+    --app-green: #059669; /* Add Funds/Positive action */
+    --bg-light: #f9fafb;
+    --card-bg: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-muted: #6b7280;
+    --border-light: #e5e7eb;
+    --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* --- 🖥️ Global/Page Styles --- */
+.funds-page-wrapper {
+    font-family: var(--primary-font);
+    background-color: var(--bg-light);
+    padding: 30px 20px;
+    min-height: 100vh;
+}
+.funds-actions{
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+/* --- 🥇 Top Action Bar (.funds) --- */
+.funds-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+    margin-bottom: 25px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-subtle);
+}
+
+.funds-actions p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgb(248, 248, 248);
+    margin: 0;
+}
+
+/* --- Button Styling --- */
+.funds-actions .btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.funds-actions .btn-green {
+    background-color: var(--app-green);
+    color: white;
+}
+
+.funds-actions .btn-green:hover {
+    background-color: #047857;
+}
+
+.funds-actions .btn-blue {
+    background-color: rgb(201, 10, 10);
+    color: white;
+    margin-left: 15px;
+}
+
+.funds-actions .btn-blue:hover {
+    background-color: var(--primary-hover);
+}
+
+/* --- 🥈 Content Grid (.funds-row) --- */
+.funds-row {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.funds-col {
+    flex: 1;
+    min-width: 0; /* Ensures proper shrinking */
+}
+
+/* --- 📊 Equity Summary Table Card --- */
+.equity-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-subtle);
+    padding: 25px;
+    height: 100%; /* Important for equal height in the grid */
+}
+
+.equity-card h4 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+/* Table container within the card */
+.funds-table {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Individual data row */
+.data {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.data p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Descriptive text (left column) */
+.data p:first-child {
+    color: var(--text-muted);
+}
+
+/* Numerical value (right column) */
+.data p:last-child {
+    font-weight: 500;
+    color: var(--text-dark);
+    font-variant-numeric: tabular-nums; /* Align numbers by decimal point */
+}
+
+/* Highlighted/Important values */
+.data .imp {
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+}
+
+.data .colored {
+    color: var(--app-green) !important;
+}
+
+/* Separator lines */
+.funds-table hr {
+    border: none;
+    border-top: 1px solid var(--border-light);
+    margin: 15px 0;
+}
+
+/* --- 🚧 Commodity Placeholder Card --- */
+.commodity-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-subtle);
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.commodity-card p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.commodity-card .btn {
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    background-color: var(--app-blue);
+    color: white;
+}
+
+.commodity-card .btn:hover {
+    background-color: var(--primary-hover);
+}
+
+/* --- 📱 Media Queries for Responsiveness --- */
+@media (max-width: 992px) {
+    .funds-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .funds-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .funds-actions p {
+        margin-bottom: 15px;
+    }
+    .funds-actions .btn-blue {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .funds-actions {
+        padding: 15px 20px;
+    }
+    .funds-actions .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+} 

@@ -1,0 +1,79 @@
+/* src/components/TopBar.module.css */
+
+.topbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  background-color: #0d0d0f; /* A very dark, professional background */
+  color: #e0e0e0;
+  padding: 0.75rem 2rem;
+  border-bottom: 1px solid #2a2a2e;
+  
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.indicesContainer {
+  display: flex;
+  gap: 2.5rem; /* Space between NIFTY and SENSEX */
+}
+
+.indexBox {
+  display: flex;
+  align-items: baseline; /* Aligns text nicely along the bottom */
+  gap: 0.5rem;
+}
+
+.indexName {
+  font-size: 0.8rem;
+  color: #888;
+  font-weight: 500;
+  white-space: nowrap; /* Prevents name from wrapping */
+}
+
+.indexPoints {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.percent {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.05); /* Subtle background */
+}
+
+.positive {
+  color: #0bc15b; /* A pleasant green for gains */
+}
+
+.negative {
+  color: #f4483e; /* A clear red for losses */
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .topbarContainer {
+    padding: 0.75rem 1rem;
+  }
+
+  .indicesContainer {
+    gap: 1.5rem;
+  }
+
+  .indexName {
+    display: none; /* Hide the name on smaller screens to save space */
+  }
+  
+  .indexPoints {
+    font-size: 1.2rem;
+  }
+  
+  .percent {
+    font-size: 0.9rem;
+  }
+}
+
+/* menu */

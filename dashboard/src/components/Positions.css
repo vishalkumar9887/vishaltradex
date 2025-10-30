@@ -1,0 +1,159 @@
+ /* src/components/Positions.css */
+
+/* --- 📝 Imports and Variables (Best Practice) --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-font: 'Inter', sans-serif;
+  --bg-color: #f9fafb; /* Light background for the page */
+  --card-bg: #ffffff; /* Pure white card background */
+  --border-light: #e5e7eb;
+  --text-header: #6b7280;
+  --text-body: #374151;
+  --color-profit: #059669; /* Stable green */
+  --color-loss: #dc2626; /* Stable red */
+  --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* --- 🖥️ General Body & Main Container --- */
+body {
+  font-family: var(--primary-font);
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Main container for the table card */
+.positions-container {
+  /* This container acts as the card wrapper for the table */
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow-subtle);
+  padding: 24px; /* Internal spacing */
+  margin: 20px auto;
+  max-width: 1200px;
+  width: 95%;
+}
+
+/* --- 📋 Title Styling --- */
+.positions-container .title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-body);
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-light);
+  letter-spacing: -0.02em; 
+}
+
+/* --- 🖼️ Table Wrapper and Base --- */
+.order-table {
+  overflow-x: auto; /* Allows horizontal scrolling on small screens */
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem; 
+}
+
+/* Explicitly target the table element */
+.order-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* --- <thead> Table Header Styling --- */
+.order-table th {
+  text-align: left;
+  padding: 12px 15px;
+  font-weight: 600;
+  color: var(--text-header);
+  background-color: var(--bg-color); 
+  border-bottom: 2px solid var(--border-light);
+  white-space: nowrap;
+  text-transform: uppercase; 
+  font-size: 0.8rem; 
+  letter-spacing: 0.05em;
+}
+
+/* Right-align specific numerical columns (Qty, Avg, LTP, P&L, Chg) */
+.order-table th:nth-child(3),
+.order-table th:nth-child(4),
+.order-table th:nth-child(5),
+.order-table th:nth-child(6),
+.order-table th:nth-child(7) {
+  text-align: right;
+}
+
+/* --- <tbody> Table Cell and Row Styling --- */
+.order-table td {
+  padding: 14px 15px;
+  border-bottom: 1px solid #f3f4f6;
+  color: var(--text-body);
+  /* Default alignment for data cells */
+  text-align: left; 
+}
+
+/* Right-align specific numerical columns in the body */
+.order-table td:nth-child(3),
+.order-table td:nth-child(4),
+.order-table td:nth-child(5) {
+  text-align: right;
+  font-variant-numeric: tabular-nums; /* Align numbers by decimal point */
+}
+
+/* Emphasize the Instrument/Stock Name (2nd column) */
+.order-table td:nth-child(2) {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* Row hover effect */
+.order-table tbody tr {
+  transition: background-color 0.2s ease-in-out;
+}
+
+.order-table tbody tr:hover {
+  background-color: #f7f9fc;
+}
+
+/* --- 📈 Profit and Loss Styling --- */
+
+/* Base style for profit/loss figures (6th and 7th column data) */
+.profit, .loss {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  /* Right-align the entire block */
+  justify-content: flex-end; 
+}
+
+.profit {
+  color: var(--color-profit);
+}
+
+.loss {
+  color: var(--color-loss);
+}
+
+/* Arrow styling */
+.arrow {
+  font-size: 0.7em;
+  opacity: 1;
+}
+
+/* --- 📱 Media Query for Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .positions-container {
+        padding: 15px;
+        margin: 10px;
+    }
+    .positions-container .title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    /* Reduce padding for tighter mobile layout */
+    .order-table th, .order-table td {
+        padding: 10px 10px;
+        font-size: 0.85rem;
+    }
+}

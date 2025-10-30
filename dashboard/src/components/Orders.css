@@ -1,0 +1,287 @@
+/* src/components/Orders.css - Enhanced Version */
+
+/* Import modern fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap');
+
+/* --- 🎨 Color Palette & Variables (Best Practice) --- */
+:root {
+  --primary-blue: #1c3faa;
+  --primary-hover: #142e88;
+  --primary-light: #e6ebff;
+  --background-light: #fffee9;
+  --background-gradient: linear-gradient(135deg, #fffee9 0%, #fff8dc 100%);
+  --text-dark: #2c3e50;
+  --text-muted: #7f8c8d;
+  --shadow-light: rgba(0, 0, 0, 0.08);
+  --shadow-lift: rgba(0, 0, 0, 0.15);
+  --shadow-colorful: rgba(28, 63, 170, 0.2);
+  --accent-color: #ff6b6b;
+  --success-color: #51cf66;
+  --border-radius: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- 🖥️ Main Page Container --- */
+.orders-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  margin: 0;
+  background: var(--background-gradient);
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background decoration elements */
+.orders-page::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(28, 63, 170, 0.1) 0%, rgba(28, 63, 170, 0) 70%);
+  z-index: -1;
+}
+
+.orders-page::after {
+  content: "";
+  position: absolute;
+  bottom: -10%;
+  left: -10%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0) 70%);
+  z-index: -1;
+}
+
+/* --- 💳 Content Card (The Focus) --- */
+.no-orders-card {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 3rem;
+  box-shadow: 0 10px 30px var(--shadow-light);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Card hover effect */
+.no-orders-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px var(--shadow-lift);
+}
+
+/* Card decoration */
+.no-orders-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--accent-color));
+}
+
+/* --- 🖼️ Icon Styling --- */
+.orders-icon {
+  font-size: 4.5rem;
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+  text-shadow: 0 4px 8px rgba(28, 63, 170, 0.15);
+  position: relative;
+}
+
+/* Icon pulse effect */
+.orders-icon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--primary-blue);
+  opacity: 0.2;
+  transform: scale(1);
+  animation: pulse 2s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* --- 📝 Text/Paragraph Styling --- */
+.no-orders-card h2 {
+  font-size: 1.8rem;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  position: relative;
+  display: inline-block;
+}
+
+/* Title underline effect */
+.no-orders-card h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 10%;
+  width: 80%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+  transform: scaleX(0);
+  transition: transform 0.6s ease;
+}
+
+.no-orders-card:hover h2::after {
+  transform: scaleX(1);
+}
+
+.no-orders-card p {
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- 🔗 Button Styling --- */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Button background effect */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* Primary button specific styling */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-hover));
+  color: #ffffff;
+  box-shadow: 0 4px 15px var(--shadow-colorful);
+}
+
+/* Button hover effect */
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--shadow-colorful);
+  background: linear-gradient(135deg, var(--primary-hover), var(--primary-blue));
+}
+
+/* Button ripple effect */
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+/* --- 📱 Media Query for Mobile --- */
+@media (max-width: 500px) {
+  .no-orders-card {
+    padding: 2.5rem 1.5rem;
+  }
+  .orders-icon {
+    font-size: 3.5rem;
+  }
+  .no-orders-card h2 {
+    font-size: 1.5rem;
+  }
+  .no-orders-card p {
+    font-size: 1rem;
+  }
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* --- ✨ Animations --- */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+}
+
+/* --- 🎯 Additional Elements --- */
+.status-badge {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  background: var(--primary-light);
+  color: var(--primary-blue);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
