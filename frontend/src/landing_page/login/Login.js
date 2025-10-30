@@ -10,14 +10,14 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3002/api/login", {
-        phone,
-        password,
-      });
+      const res = await axios.post(
+        "https://vishaltradex-backend.onrender.com/api/login", // ✅ Render backend URL
+        { phone, password }
+      );
 
       alert(res.data.message);
-      // ✅ Redirect to dashboard React app
-      window.location.href = "http://localhost:3001/";
+      // ✅ Redirect to dashboard deployed on Netlify
+      window.location.href = "https://vishaltradex-dashboard.netlify.app/";
     } catch (err) {
       console.error(err);
       alert("Login failed!");
@@ -43,7 +43,6 @@ function Login() {
         </p>
 
         <form onSubmit={handleLogin}>
-          {/* Phone input */}
           <div className="mb-3">
             <label htmlFor="phone" className="form-label fw-semibold">
               Phone Number
@@ -60,7 +59,6 @@ function Login() {
             />
           </div>
 
-          {/* Password input */}
           <div className="mb-3">
             <label htmlFor="password" className="form-label fw-semibold">
               Password
@@ -77,7 +75,6 @@ function Login() {
             />
           </div>
 
-          {/* Login Button */}
           <div className="text-center mt-4">
             <button
               type="submit"
@@ -94,7 +91,6 @@ function Login() {
           </div>
         </form>
 
-        {/* Signup Link */}
         <div className="text-center mt-4">
           <p style={{ display: "inline", marginRight: "10px" }}>
             Don’t have an account?
