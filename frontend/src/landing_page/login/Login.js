@@ -17,7 +17,7 @@ function Login() {
 
       alert(res.data.message);
       // ✅ Redirect to dashboard deployed on Netlify
-      window.location.href = "https://vishaltradex-dashboard.netlify.app/";
+      window.location.href = "https://vishaltrde.netlify.app";
     } catch (err) {
       console.error(err);
       alert("Login failed!");
