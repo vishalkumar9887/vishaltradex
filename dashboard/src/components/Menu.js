@@ -312,7 +312,7 @@ const Menu = () => {
                   to="#"
                   className="dropdown-item"
                   onClick={() => {
-                    window.location.href = "http://localhost:3000/signup";
+                    window.location.href = "https://vishaltradex.netlify.app";
                   }}
                 >
                   Logout
