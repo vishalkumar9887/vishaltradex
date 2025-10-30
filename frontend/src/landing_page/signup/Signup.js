@@ -11,10 +11,11 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3002/api/signup", {
-        phone,
-        password,
-      });
+      const res = await axios.post(
+  "https://vishaltradex-backend.onrender.com/api/signup",
+  { phone, password }
+);
+
       alert(res.data.message);
       navigate("/login");
     } catch (err) {
