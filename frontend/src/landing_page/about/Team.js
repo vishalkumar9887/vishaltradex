@@ -137,7 +137,7 @@ function Team(params) {
           Open your VishTradeX account today — fast, simple, and paperless.
         </p>
         <a
-          href="/signup"
+          href="/index.html"
           style={{
             backgroundColor: "#003366",
             color: "white",
