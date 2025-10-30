@@ -1,5 +1,4 @@
 require("dotenv").config();
-
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -8,7 +7,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { UserModel } = require("./model/UserModel");
 const { HoldingsModel } = require("./model/HoldingsModel");
-
 const { PositionsModel } = require("./model/PositionsModel");
 const { OrdersModel } = require("./model/OrdersModel");
 
@@ -19,26 +17,22 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-// ✅ Default route (for Render test)
+
+// ✅ Default route
 app.get("/", (req, res) => {
   res.send("VishalTradeX Backend is Running ✅");
 });
 
-
-
-// ✅ SIGNUP route
+// ✅ SIGNUP
 app.post("/api/signup", async (req, res) => {
   try {
     const { phone, password } = req.body;
-
-    if (!phone || !password) {
+    if (!phone || !password)
       return res.status(400).json({ message: "All fields are required" });
-    }
 
     const existingUser = await UserModel.findOne({ phone });
-    if (existingUser) {
+    if (existingUser)
       return res.status(400).json({ message: "User already exists" });
-    }
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new UserModel({ phone, password: hashedPassword });
@@ -52,20 +46,17 @@ app.post("/api/signup", async (req, res) => {
   }
 });
 
-// ✅ LOGIN route
+// ✅ LOGIN
 app.post("/api/login", async (req, res) => {
   try {
     const { phone, password } = req.body;
 
     const user = await UserModel.findOne({ phone });
-    if (!user) {
-      return res.status(400).json({ message: "User not found" });
-    }
+    if (!user) return res.status(400).json({ message: "User not found" });
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
+    if (!isMatch)
       return res.status(400).json({ message: "Invalid credentials" });
-    }
 
     const token = jwt.sign({ id: user._id }, "secretkey", { expiresIn: "1h" });
     res.json({ message: "Login successful", token });
@@ -75,32 +66,35 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
-
+// ✅ Other routes
 app.get("/allHoldings", async (req, res) => {
-  let allHoldings = await HoldingsModel.find({});
+  const allHoldings = await HoldingsModel.find({});
   res.json(allHoldings);
 });
 
 app.get("/allPositions", async (req, res) => {
-  let allPositions = await PositionsModel.find({});
+  const allPositions = await PositionsModel.find({});
   res.json(allPositions);
 });
 
 app.post("/newOrder", async (req, res) => {
-  let newOrder = new OrdersModel({
+  const newOrder = new OrdersModel({
     name: req.body.name,
     qty: req.body.qty,
     price: req.body.price,
     mode: req.body.mode,
   });
-
-  newOrder.save();
-
+  await newOrder.save();
   res.send("Order saved!");
 });
 
-app.listen(PORT, () => {
-  console.log("App started!");
-  mongoose.connect(uri);
-  console.log("DB started!");
-});
+// ✅ Connect DB first, then start server
+mongoose
+  .connect(uri)
+  .then(() => {
+    console.log("DB connected!");
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => console.error("MongoDB Connection Error:", err));
