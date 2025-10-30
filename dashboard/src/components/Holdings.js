@@ -7,18 +7,31 @@ import styles from "./Holding.css";
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
+  // useEffect(() => {
+  //   axios
+  //     .get("/allHoldinghttp://localhost:3002s")
+  //     .then((res) => {
+  //       setAllHoldings(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.error("⚠️ Error fetching holdings:", err.message);
+  //       // fallback data (jab backend kaam na kare)
+  //       setAllHoldings(allHoldings);
+  //     });
+  // }, []);
   useEffect(() => {
-    axios
-      .get("http://localhost:3002/allHoldings")
-      .then((res) => {
-        setAllHoldings(res.data);
-      })
-      .catch((err) => {
-        console.error("⚠️ Error fetching holdings:", err.message);
-        // fallback data (jab backend kaam na kare)
-        setAllHoldings(allHoldings);
-      });
-  }, []);
+  axios
+    .get("https://vishaltradex-backend.onrender.com/allHoldings")
+    .then((res) => {
+      setAllHoldings(res.data);
+    })
+    .catch((err) => {
+      console.error("⚠️ Error fetching holdings:", err.message);
+      // fallback data (jab backend kaam na kare)
+      setAllHoldings(allHoldings);
+    });
+}, []);
+
 
   // Labels aur data graph ke liye
   const labels = allHoldings.map((stock) => stock.name);

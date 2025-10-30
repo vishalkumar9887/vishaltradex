@@ -94,7 +94,8 @@ const BuyActionWindow = ({ uid }) => {
 
     setIsOrderPlacing(true);
     try {
-      await axios.post("http://localhost:3002/newOrder", {
+      await axios.post("https://vishaltradex-backend.onrender.com/newOrder", {
+
         name: uid,
         qty: stockQuantity,
         price: stockPrice,
